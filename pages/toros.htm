@@ -23,7 +23,7 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
-<div class="container" style="margin-top:100px">
+<div class="container" style="padding-top:100px; background-color: rgb(71, 189, 71)">
   <h1> Listado de Toros </h1>
 
   <ul class="record-list">
@@ -37,8 +37,8 @@ pageNumber = "{{ :page }}"
           {% endif %}
 
 
-          {{ attribute(record, displayColumn) }}
-          {{ record.nombre }} - {{ record.hbu }}
+          <!--           {{ attribute(record.nombre, displayColumn) }}
+ --> {{ record.nombre }} - {{ record.hbu }}
 
 
           {% if detailsPage %}
