@@ -23,26 +23,61 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
-<div class="container" style="padding-top:100px; background-color: rgb(71, 189, 71)">
+<div class="container-fluid" style="padding-top:100px; background-color: rgb(71, 189, 71)">
     <h1> Listado de Toros </h1>
 
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">H.B.U.</th>
                 <th scope="col">RP</th>
+                <th scope="col">Carav</th>
+                <th scope="col">AbueloM</th>
+                <th scope="col">Hijos</th>
+                <th scope="col">PAVG</th>
+                <th scope="col">G-EPD</th>
+                <th scope="col">FPdir</th>
+                <th scope="col">Nacido</th>
+                <th scope="col">Dest</th>
+                <th scope="col">PA_V</th>
+                <th scope="col">FPmat</th>
+                <th scope="col">Leche</th>
+                <th scope="col">AOBc</th>
+                <th scope="col">GRASAc</th>
+                <th scope="col">CE</th>
+                <th scope="col">EfC</th>
+                <th scope="col">FPmat</th>
+                <th scope="col">ICria</th>
+                <th scope="col">ICompleto</th>
+
+
             </tr>
         </thead>
         <tbody>
             {% for record in records %}
 
             <tr>
-                <th scope="row">1</th>
                 <td>{{ record.nombre }}</td>
                 <td>{{ record.hbu }}</td>
                 <td>{{ record.rp }}</td>
+                <td>{{ record.caravana }}</td>
+                <td>{{ record.abuelom }}</td>
+                <td>{{ record.hijos}}</td>
+                <td>{{ record.pavg }}</td>
+                <td>{{ record.g-epd }}</td>
+                <td>{{ record.fdir }}</td>
+                <td>{{ record.nacido }}</td>
+                <td>{{ record.destete }}</td>
+                <td>{{ record.pa_v }}</td>
+                <td>{{ record.fpmat }}</td>
+                <td>{{ record.leche }}</td>
+                <td>{{ record.aobc }}</td>
+                <td>{{ record.grasac }}</td>
+                <td>{{ record.ce }}</td>
+                <td>{{ record.efc }}</td>
+                <td>{{ record.indicecria }}</td>
+                <td>{{ record.indicecompleto }}</td>
             </tr>
             {% endfor %}
 

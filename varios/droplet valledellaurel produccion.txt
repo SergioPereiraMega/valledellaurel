@@ -127,6 +127,49 @@ Comenzamos con el plugin de Builder para generar las tablas, modelos, controller
 
 
 
+-------------------
+para llenar la modificar los campos de la base de datos mediante el visual studio lo que hacemos es ir a 
+plugins\spmda\animales\updates\builder_table_update_spmda_animales_toro_5.php y dentro de ese esquema de update
+agregamos los campos que queremos en function up() y repetimos lo mismo en function down().
+Luego vamos a la consola y corremos php artisan october:up de esta forma modifica la tabla de la base de datos y crea 
+una nueva version en plugins\spmda\animales\updates\version.yaml donde uno luego puede volver atras mediante rollback.
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table spmda_animales_toro'
+    - builder_table_create_spmda_animales_toro.php
+1.0.3:
+    - 'Updated table spmda_animales_toro'
+    - builder_table_update_spmda_animales_toro.php
+1.0.4:
+    - 'Updated table spmda_animales_toro'
+    - builder_table_update_spmda_animales_toro_2.php
+1.0.5:
+    - 'Updated table spmda_animales_toro'
+    - builder_table_update_spmda_animales_toro_3.php
+1.0.6:
+    - 'Updated table spmda_animales_toro'
+    - builder_table_update_spmda_animales_toro_4.php
+1.0.7:
+    - 'Updated table spmda_animales_toro'
+    - builder_table_update_spmda_animales_toro_5.php
+
+---------------------------------------------------------
+Vamos a importar desde un archivo csv la tabla de toros.
+Ir a mysql y en la pestaña sql copiamos este codigo y clickeamos en boton de mas abajo Continuar.
+
+LOAD DATA INFILE 'C:/Users/Sergio/Desktop/BACKEND/Octobervalledellaurel/themes/valledellaurel/varios/toros.csv' 
+INTO TABLE spmda_animales_toro 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY ''
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+
+
+
+
 
 
 
