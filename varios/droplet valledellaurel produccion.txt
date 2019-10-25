@@ -1,0 +1,140 @@
+Crear una carpeta en nuestro directorio de trabajo llamado 
+\Octobervalledellaurel
+
+Pasemos ahora a instalar OctoberCMS
+
+Debemos inicializar xampp
+Luego vamos a mysql y admin para ver las bases de datos de xampp (o en el navegador http://localhost/phpmyadmin/)
+
+Creamos una nueva base de datos llamada
+
+valledellaurel con cotejamiento utf8mb4_unicode_ci
+
+Pasamos ahora a instalar OctoberCMS mediante la consola ubicada en \Octobervalledellaurel. 
+Vamos a la documentacion https://octobercms.com/docs/console/commands#console-install y leemos.
+luego en la linea de comando bajamos los archivos necesarios.
+
+$ php -r "eval('?>'.file_get_contents('https://octobercms.com/api/installer'));"
+
+Una vez descargados procedemos a insalar OctoberCMS mediante el comando
+
+$ php artisan october:install
+
+Una vez realizado esto October esta instalado y lo configuramos mediante las respuestas siguientes
+
+
+Database Type: 0
+MySQL Host: Enter (127.0.0.1)
+MySQL Port: Enter
+Database Name: valledellaurel 
+MySql Login: root
+MySql Password: 
+First Name: Your First Name
+Second Name: Your Second Name
+Email Address: Your email address
+Admin Login: admin
+Admin Password: admin
+
+Is this information correct: Y
+Application URL: https://localhost
+
+Ya tenemos instalado OctoberCMS luego vamos a la linea de comando y corremos el servidor mediante
+
+$ php -S localhost:3000 
+Vamos al navegador en http://localhost:3000 y veremos el tema inicial de OctoberCMS.
+
+Luego nos direccionamos a http://localhost:3000/backend con usuario admin y clave admin que habiamos seteado y nos va indicar que podriamos actualizar el OctoberCMS y efectuamos la actualizacion mas reciente.
+Por las dudas esta dentro de SYSTEM Updates & Plugins.
+
+Por ultimo vamos nuevamente a http://localhost:3000/backend y clickeamos la pestaña Settings y dentro de ella vamos a desplegar CMS
+y clickeamos en Front-end theme donde nos aparece el Demo y debajo una linea que dice Create a new blank theme,
+clickeamos ahi para crear un nuevo tema que lo llamamos valledellaurel.
+
+Luego copiamos el repositorio en \themes\valledellaurel desde github https://github.com/SergioPereiraMega/valledellaurel.git
+en el mismo tenemos por ahora 2 archivos theme.yaml .gitattributes y una carpeta layouts que contiene default.html
+
+el martes seguimos agregando el theme completo.
+-----------------------------------------------------
+Debemos combinar las rutas en October mediante el formato template de Twig a modo de ejemplo.
+<div class="image"style="background-image: url({{'assets/img/office-2.jpeg'|theme}})">   </div> o
+<img alt="..." class="img-circle" src="{{'assets/img/faces/face_2.jpg'|theme}}"/>
+<script src="{{ 'assets/js/jquery.min.js' | theme }}" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap.css' | theme }}" />
+
+Podemos concatenar todos los css y js en un comando de OctoberCMS mediante este formato.
+
+    <link
+      href="{{ [
+        '@framework.extras',
+        'assets/css/bootstrap.css',
+        'assets/css/gaia.css',
+        ]|theme }}"
+      rel="stylesheet"
+    />
+
+
+    <!-- Scripts -->
+
+    <script src="{{
+        [
+          '@jquery',
+          '@framework',
+          '@framework.extras',
+          'assets/js/bootstrap.js',
+          'assets/js/gaia.js',
+          'assets/js/jquery.min.js',
+          'assets/js/modernizr.js'
+        ] | theme
+      }}"></script>
+
+
+--------------------------------------
+Pasemos ahora a agregar los plugins a OctoberCMS para mejorar y facilitar el uso por parte del cliente.
+Todos estos plugins van a ser colocados fuera del repositorio de Themes/Octobervalledellaurel en la carpeta de los plugins
+a modo de ejemplo \plugins\rainlab   o plugins\flosch   y \plugins\spmda    etc.
+
+Para hacer esto vamos al backend y luego pestaña settings y luego Updates & Plugins y buscamos e instalamos los siguientes plugins.
+
+Builder   By RainLab
+Slidershow By Florent Schildknecht
+Blog By RainLab
+
+------------------------------------------
+
+Pasemos primero a completar la primer tabla de base de datos mediante el Builder
+
+Cuando nos aparecen errores de invalid security token vamos a cms.php y desactivamos el csrf para false
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cross Site Request Forgery (CSRF) Protection
+    |--------------------------------------------------------------------------
+    |
+    | If the CSRF protection is enabled, all "postback" requests are checked
+    | for a valid security token.
+    |
+    */
+
+    'enableCsrfProtection' => true, lo cambiamos a  'enableCsrfProtection' => false,
+
+----------------------------------------------
+
+Comenzamos con el plugin de Builder para generar las tablas, modelos, controllers de los animales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
