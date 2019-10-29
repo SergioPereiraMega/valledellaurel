@@ -122,16 +122,13 @@ Cuando nos aparecen errores de invalid security token vamos a cms.php y desactiv
 Comenzamos con el plugin de Builder para generar las tablas, modelos, controllers de los animales
 
 
-
-
-
-
-
 -------------------
 para llenar la modificar los campos de la base de datos mediante el visual studio lo que hacemos es ir a 
 plugins\spmda\animales\updates\builder_table_update_spmda_animales_toro_5.php y dentro de ese esquema de update
 agregamos los campos que queremos en function up() y repetimos lo mismo en function down().
-Luego vamos a la consola y corremos php artisan october:up de esta forma modifica la tabla de la base de datos y crea 
+Luego vamos a la consola y corremos 
+php artisan october:up 
+de esta forma modifica la tabla de la base de datos y crea 
 una nueva version en plugins\spmda\animales\updates\version.yaml donde uno luego puede volver atras mediante rollback.
 1.0.1:
     - 'Initialize plugin.'
@@ -150,9 +147,7 @@ una nueva version en plugins\spmda\animales\updates\version.yaml donde uno luego
 1.0.6:
     - 'Updated table spmda_animales_toro'
     - builder_table_update_spmda_animales_toro_4.php
-1.0.7:
-    - 'Updated table spmda_animales_toro'
-    - builder_table_update_spmda_animales_toro_5.php
+
 
 ---------------------------------------------------------
 Vamos a importar desde un archivo csv la tabla de toros.
@@ -164,6 +159,42 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY ''
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+
+Nuestra tabla de toros es la siguiente
+
+CREATE TABLE `spmda_animales_toro` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `caravana` int(11) NOT NULL,
+  `hbu` int(11) NOT NULL,
+  `rp` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pigmentoizquierdo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pigmentoderecho` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `padre` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abuelom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hijos` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pavg` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `g_epd` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fpdir` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nacido` date NOT NULL,
+  `destete` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meses15` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meses18` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pa_v` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fpmat` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `leche` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aobc` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grasac` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ce` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `efc` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `indicecria` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `indicecompleto` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 
 

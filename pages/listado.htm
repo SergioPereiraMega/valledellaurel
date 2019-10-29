@@ -23,16 +23,19 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
-<div class="container-fluid" style="padding-top:100px; background-color: rgb(71, 189, 71)">
+<div class="container-fluid" style="padding-top:150px; background-color: rgb(159, 194, 159)">
     <h1> Listado de Toros </h1>
 
-    <table class="table table-hover">
+    <table class="table table-responsive table-hover table-borderless">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">H.B.U.</th>
                 <th scope="col">RP</th>
                 <th scope="col">Carav</th>
+                <th scope="col">PigIzq</th>
+                <th scope="col">PigDer</th>
+                <th scope="col">Padre</th>
                 <th scope="col">AbueloM</th>
                 <th scope="col">Hijos</th>
                 <th scope="col">PAVG</th>
@@ -40,6 +43,8 @@ pageNumber = "{{ :page }}"
                 <th scope="col">FPdir</th>
                 <th scope="col">Nacido</th>
                 <th scope="col">Dest</th>
+                <th scope="col">15meses</th>
+                <th scope="col">18meses</th>
                 <th scope="col">PA_V</th>
                 <th scope="col">FPmat</th>
                 <th scope="col">Leche</th>
@@ -47,7 +52,6 @@ pageNumber = "{{ :page }}"
                 <th scope="col">GRASAc</th>
                 <th scope="col">CE</th>
                 <th scope="col">EfC</th>
-                <th scope="col">FPmat</th>
                 <th scope="col">ICria</th>
                 <th scope="col">ICompleto</th>
 
@@ -62,6 +66,9 @@ pageNumber = "{{ :page }}"
                 <td>{{ record.hbu }}</td>
                 <td>{{ record.rp }}</td>
                 <td>{{ record.caravana }}</td>
+                <td>{{ record.pigmentoizquierdo }}</td>
+                <td>{{ record.pigmentoderecho }}</td>
+                <td>{{ record.padre }}</td>
                 <td>{{ record.abuelom }}</td>
                 <td>{{ record.hijos}}</td>
                 <td>{{ record.pavg }}</td>
@@ -69,6 +76,8 @@ pageNumber = "{{ :page }}"
                 <td>{{ record.fdir }}</td>
                 <td>{{ record.nacido }}</td>
                 <td>{{ record.destete }}</td>
+                <td>{{ record.meses15 }}</td>
+                <td>{{ record.meses18 }}</td>
                 <td>{{ record.pa_v }}</td>
                 <td>{{ record.fpmat }}</td>
                 <td>{{ record.leche }}</td>
