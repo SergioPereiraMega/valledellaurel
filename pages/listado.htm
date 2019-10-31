@@ -1,18 +1,19 @@
 title = "ListadoToros"
-url = "/listado"
+url = "/toros/:page?"
 layout = "default"
 description = "Listado de toros"
 is_hidden = 0
 
 [builderList]
-modelClass = "spmda\Animales\Models\Toro"
+modelClass = "Spmda\Animales\Models\Toro"
 scope = "-"
 scopeValue = "{{ :scope }}"
-displayColumn = "nombre"
-noRecordsMessage = "No records found"
-detailsPage = "-"
+displayColumn = "hbu"
+noRecordsMessage = "No se encotraron items"
+detailsPage = "toro"
 detailsKeyColumn = "slug"
 detailsUrlParameter = "slug"
+recordsPerPage = 50
 pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
@@ -63,7 +64,15 @@ pageNumber = "{{ :page }}"
 
             <tr>
                 <td>{{ record.nombre }}</td>
-                <td>{{ record.hbu }}</td>
+                {% if detailsPage %}
+                <td>
+                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                        {% endif %}
+                        {{ attribute(record, displayColumn) }}
+                        {% if detailsPage %}
+                    </a>
+                    {% endif %}
+                </td>
                 <td>{{ record.rp }}</td>
                 <td>{{ record.caravana }}</td>
                 <td>{{ record.pigmentoizquierdo }}</td>
