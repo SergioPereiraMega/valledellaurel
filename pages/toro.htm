@@ -2,9 +2,7 @@ title = "toro"
 url = "/toros/toro/:slug"
 layout = "default"
 is_hidden = 0
-
-[builderDetails]
-modelClass = "Spmda\Animales\Models\Toro"
+[builderDetails] modelClass = "Spmda\Animales\Models\Toro"
 identifierValue = "{{ :slug }}"
 modelKeyColumn = "slug"
 displayColumn = "nombre"
@@ -13,23 +11,105 @@ notFoundMessage = "No hemos encontrado el toro"
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}
-
 {% if record %}
-<h3>{{ record.nombre }}</h3>
-<h3>{{ record.hbu }}</h3>
-<ul class="gallery clearfix">
-    {% for image in record.vistas %}
 
-    <li>
-        <a href="{{ image.path }}">
-            <img src="{{ image.thumb(300,250) }}" alt="">
-        </a>
-    </li>
+<div id="toro" class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ record.nombre }}</h1>
+      <h3>{{ record.hbu }}</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!--
+      
+      Photos from unsplash.com
+      
+      Follow me on
+      Dribbble: https://dribbble.com/supahfunk
+      Twitter: https://twitter.com/supahfunk
+      Codepen: https://codepen.io/supah/
+      
+      -->
+        <div class="gallery">
+          {% for image in record.vistas %}
+          <figure>
+            <img src="{{ image.path }}" alt="" />
+            <figcaption>Daytona Beach <small>United States</small></figcaption>
+          </figure>
+          {% endfor %}
 
+          <div class="col-12 col-sm-6">
+            <iframe src="" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">RP</th>
+              <th scope="col">Carav</th>
+              <th scope="col">PigIzq</th>
+              <th scope="col">PigDer</th>
+              <th scope="col">Padre</th>
+              <th scope="col">AbueloM</th>
+              <th scope="col">Hijos</th>
+              <th scope="col">PAVG</th>
+              <th scope="col">G-EPD</th>
+              <th scope="col">FPdir</th>
+              <th scope="col">Nacido</th>
+              <th scope="col">Dest</th>
+              <th scope="col">15meses</th>
+              <th scope="col">18meses</th>
+              <th scope="col">PA_V</th>
+              <th scope="col">FPmat</th>
+              <th scope="col">Leche</th>
+              <th scope="col">AOBc</th>
+              <th scope="col">GRASAc</th>
+              <th scope="col">CE</th>
+              <th scope="col">EfC</th>
+              <th scope="col">ICria</th>
+              <th scope="col">ICompleto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{{ record.rp }}</td>
+              <td>{{ record.caravana }}</td>
+              <td>{{ record.pigmentoizquierdo }}</td>
+              <td>{{ record.pigmentoderecho }}</td>
+              <td>{{ record.padre }}</td>
+              <td>{{ record.abuelom }}</td>
+              <td>{{ record.hijos }}</td>
+              <td>{{ record.pavg }}</td>
+              <td>{{ record.g - epd }}</td>
+              <td>{{ record.fdir }}</td>
+              <td>{{ record.nacido }}</td>
+              <td>{{ record.destete }}</td>
+              <td>{{ record.meses15 }}</td>
+              <td>{{ record.meses18 }}</td>
+              <td>{{ record.pa_v }}</td>
+              <td>{{ record.fpmat }}</td>
+              <td>{{ record.leche }}</td>
+              <td>{{ record.aobc }}</td>
+              <td>{{ record.grasac }}</td>
+              <td>{{ record.ce }}</td>
+              <td>{{ record.efc }}</td>
+              <td>{{ record.indicecria }}</td>
+              <td>{{ record.indicecompleto }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-    {% endfor %}
-
-</ul>
 {% else %}
 {{ notFoundMessage }}
 {% endif %}
