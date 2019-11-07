@@ -69,6 +69,32 @@ $(document).ready(function () {
         gaia.initGoogleMaps(this, lat, lng);
     });
 
+    /* -------------------------------------------------------------
+         Variables
+     ------------------------------------------------------------- */
+    var leftArrow = '<i class="fas fa-chevron-left"></i>';
+    var rightArrow = '<i class="fas fa-chevron-right"></i>';
+
+
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            nav: true,
+            dots: true,
+            navText: [leftArrow, rightArrow],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+    });
 });
 
 //activate collapse right menu when the windows is resized
