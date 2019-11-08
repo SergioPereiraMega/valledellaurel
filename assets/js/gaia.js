@@ -81,6 +81,9 @@ $(document).ready(function () {
             loop: true,
             nav: true,
             dots: true,
+            autoplay: true,
+            autoplayTimeout: 8000,
+            autoplayHoverPause: false,
             navText: [leftArrow, rightArrow],
             responsive: {
                 0: {

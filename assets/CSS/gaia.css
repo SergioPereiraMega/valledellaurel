@@ -24,6 +24,21 @@ body {
   -webkit-font-smoothing: antialiased;
   font-size: 100%;
 }
+/*agrego color fondo tabla*/
+table {
+  background-color: rgb(160,210,160);
+}
+#layout-header {
+  background-color: rgb(160,210,160);
+}
+
+.listado{
+  background-color: rgb(160,210, 160);
+  padding-top: 150px;
+}
+/*agrego color fondo tabla*/
+
+
 /* TORO CSS */
 #toro {
   background-color: #e0e0e0;
@@ -1847,7 +1862,7 @@ fieldset[disabled] .form-control {
   margin-bottom: 5px;
 }
 .footer-big nav > ul .btn-social.btn-simple {
-  padding: 0 0 4px 0;
+  padding: 0 4px 0 10px;
 }
 .footer-big .form-group {
   margin-top: 15px;
