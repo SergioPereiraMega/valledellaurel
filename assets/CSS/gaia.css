@@ -1100,7 +1100,7 @@ fieldset[disabled] .form-control {
 .section .parallax,
 .section .static-image {
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   overflow: hidden;
   display: block;
   position: relative;
@@ -1135,6 +1135,11 @@ fieldset[disabled] .form-control {
 
 .section-contact-form {
   padding-top: 110px;
+  padding-bottom: 50px;
+  background-color: rgb(160,210, 160);
+}
+.section-contact-form body {
+  background-color: rgb(160,210, 160);
 }
 .section-contact-form .title-area {
   margin-bottom: 15px;

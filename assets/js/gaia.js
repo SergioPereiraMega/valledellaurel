@@ -136,7 +136,7 @@ $('a[data-scroll="true"]').click(function (e) {
         e.preventDefault();
 
         $('html, body').animate({
-            scrollTop: $(scroll_target).offset().top - 50
+            scrollTop: $(scroll_target).offset().top - 40
         }, 1000);
     }
 

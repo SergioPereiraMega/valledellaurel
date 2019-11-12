@@ -1,0 +1,31 @@
+title = "Contacto"
+url = "/contacto"
+layout = "default"
+is_hidden = 0
+
+[genericForm contactForm]
+messages_success = "Su mensaje ha sido enviado correctamente"
+messages_errors = "Favor verificar ingreso de datos hay un error en un campo"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+==
+<div class="container section-contact-form">
+    <div class="container-fluid .title-area">
+        <h1>Pagina de contacto con Cabaña Valle del Laurel</h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            {% component 'contactForm' %}
+
+        </div>
+        <div class="col-md-6">
+            <h1>Ingresar imagen o mapa</h1>
+        </div>
+    </div>
+</div>
