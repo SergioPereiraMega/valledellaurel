@@ -254,8 +254,22 @@ gaia = {
         // To add the marker to the map, call setMap();
         marker.setMap(map);
     }
-
 }
+
+/* -------------------------------------------------------------
+    Google Map
+------------------------------------------------------------- */
+var map;
+window.initMap = function () {
+    if ($('#map').length) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -33.903865, lng: -55.1013417 },
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+        });
+    }
+}
+
 
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for
