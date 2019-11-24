@@ -4,8 +4,11 @@ layout = "default"
 is_hidden = 0
 
 [genericForm contactForm]
+rules[name] = "required"
+rules[email] = "required|email"
 messages_success = "Su mensaje ha sido enviado correctamente"
-messages_errors = "Favor verificar ingreso de datos hay un error en un campo"
+messages_errors = "Verifique haber puesto nombre y correo validos"
+mail_enabled = 0
 inline_errors = "disabled"
 sanitize_data = "disabled"
 anonymize_ip = "disabled"
