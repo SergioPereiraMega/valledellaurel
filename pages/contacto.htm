@@ -3,12 +3,17 @@ url = "/contacto"
 layout = "default"
 is_hidden = 0
 
-[genericForm contactForm]
+[genericForm]
+group = "Web Mails"
 rules[name] = "required"
 rules[email] = "required|email"
+rules_messages[name.required] = "Debe Ingresar su Nombre"
+rules_messages[email.required] = "Debe Ingresar un email"
+rules_messages[email.email] = "Debe ingresar un email valido"
 messages_success = "Su mensaje ha sido enviado correctamente"
 messages_errors = "Verifique haber puesto nombre y correo validos"
 mail_enabled = 0
+reset_form = 1
 inline_errors = "disabled"
 sanitize_data = "disabled"
 anonymize_ip = "disabled"
@@ -23,7 +28,7 @@ recaptcha_size = "normal"
 
     <div class="row">
         <div class="col-md-6">
-            {% component 'contactForm' %}
+            {% component 'genericForm' %}
         </div>
         <div class="col-md-6">
             <h3>Nuestra Ubicacion</h3>
