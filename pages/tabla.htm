@@ -1,5 +1,5 @@
 title = "ListadoToros" 
-url = "/toros/:page?" 
+url = "/tabla/:page?" 
 layout = "default" 
 description = "Listado de toros" 
 is_hidden = 0
@@ -22,11 +22,11 @@ pageNumber = "{{ :page }}"
 {% set detailsKeyColumn =builderList.detailsKeyColumn %} 
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
+
 <div class="container-fluid listado">
   <h1>Listado de Toros</h1>
-
-  <table class="table table-hover table-condensed table-responsive table-borderless">
-    <thead>
+<table id="table_toros" class="display" style="width:100%">
+  <thead>
       <tr>
         <th scope="col">Nombre (50 por pagina)</th>
         <th scope="col">H.B.U.</th>
@@ -54,18 +54,20 @@ pageNumber = "{{ :page }}"
         <th scope="col">ICria</th>
         <th scope="col">ICompleto</th>
       </tr>
-    </thead>
-    <tbody>
-      {% for record in records %}
+  </thead>
+  <tbody>
+    {% for record in records %}
 
       <tr>
         <td>{{ record.nombre }}</td>
         {% if detailsPage %}
-        <td>
+          <td>
           <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-            {% endif %} {{ attribute(record, displayColumn) }} {% if detailsPage %}
-          </a>
-          {% endif %}
+          {% endif %} 
+            {{ attribute(record, displayColumn) }} 
+          {% if detailsPage %}
+            </a>
+        {% endif %}
         </td>
         <td>{{ record.rp }}</td>
         <td>{{ record.caravana }}</td>
@@ -91,24 +93,41 @@ pageNumber = "{{ :page }}"
         <td>{{ record.indicecria }}</td>
         <td>{{ record.indicecompleto }}</td>
       </tr>
-      {% endfor %}
+
+    {% endfor %}
+
     </tbody>
-  </table>
-  {% if records.lastPage > 1 %}
-  <ul class="pagination">
-    {% if records.currentPage > 1 %}
-    <li>
-      <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a>
-    </li>
-    {% endif %} {% for page in 1..records.lastPage %}
-    <li class="{{ records.currentPage == page ? 'active' : null }}">
-      <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-    </li>
-    {% endfor %} {% if records.lastPage > records.currentPage %}
-    <li>
-      <a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a>
-    </li>
-    {% endif %}
-  </ul>
-  {% endif %}
+    <tfoot>
+        <tr>
+          <th scope="col">Nombre (50 por pagina)</th>
+          <th scope="col">H.B.U.</th>
+          <th scope="col">RP</th>
+          <th scope="col">Carav</th>
+          <th scope="col">PigIzq</th>
+          <th scope="col">PigDer</th>
+          <th scope="col">Padre</th>
+          <th scope="col">AbueloM</th>
+          <th scope="col">Hijos</th>
+          <th scope="col">PAVG</th>
+          <th scope="col">G-EPD</th>
+          <th scope="col">FPdir</th>
+          <th scope="col">Nacido</th>
+          <th scope="col">Dest</th>
+          <th scope="col">15meses</th>
+          <th scope="col">18meses</th>
+          <th scope="col">PA_V</th>
+          <th scope="col">FPmat</th>
+          <th scope="col">Leche</th>
+          <th scope="col">AOBc</th>
+          <th scope="col">GRASAc</th>
+          <th scope="col">CE</th>
+          <th scope="col">EfC</th>
+          <th scope="col">ICria</th>
+          <th scope="col">ICompleto</th>
+          </tr>
+    </tfoot>
+</table>
 </div>
+
+
+

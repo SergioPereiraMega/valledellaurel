@@ -46,7 +46,7 @@ Vamos al navegador en http://localhost:3000 y veremos el tema inicial de October
 Luego nos direccionamos a http://localhost:3000/backend con usuario admin y clave admin que habiamos seteado y nos va indicar que podriamos actualizar el OctoberCMS y efectuamos la actualizacion mas reciente.
 Por las dudas esta dentro de SYSTEM Updates & Plugins.
 
-Por ultimo vamos nuevamente a http://localhost:3000/backend y clickeamos la pestaña Settings y dentro de ella vamos a desplegar CMS
+Por ultimo vamos nuevamente a http://localhost:3000/backend y clickeamos la pestaï¿½a Settings y dentro de ella vamos a desplegar CMS
 y clickeamos en Front-end theme donde nos aparece el Demo y debajo una linea que dice Create a new blank theme,
 clickeamos ahi para crear un nuevo tema que lo llamamos valledellaurel.
 
@@ -93,7 +93,7 @@ Pasemos ahora a agregar los plugins a OctoberCMS para mejorar y facilitar el uso
 Todos estos plugins van a ser colocados fuera del repositorio de Themes/Octobervalledellaurel en la carpeta de los plugins
 a modo de ejemplo \plugins\rainlab   o plugins\flosch   y \plugins\spmda    etc.
 
-Para hacer esto vamos al backend y luego pestaña settings y luego Updates & Plugins y buscamos e instalamos los siguientes plugins.
+Para hacer esto vamos al backend y luego pestaï¿½a settings y luego Updates & Plugins y buscamos e instalamos los siguientes plugins.
 
 Builder   By RainLab
 Slidershow By Florent Schildknecht
@@ -151,7 +151,7 @@ una nueva version en plugins\spmda\animales\updates\version.yaml donde uno luego
 
 ---------------------------------------------------------
 Vamos a importar desde un archivo csv la tabla de toros.
-Ir a mysql y en la pestaña sql copiamos este codigo y clickeamos en boton de mas abajo Continuar.
+Ir a mysql y en la pestaï¿½a sql copiamos este codigo y clickeamos en boton de mas abajo Continuar.
 
 LOAD DATA INFILE 'C:/Users/Sergio/Desktop/BACKEND/Octobervalledellaurel/themes/valledellaurel/varios/toros.csv' 
 INTO TABLE spmda_animales_toro 
@@ -159,6 +159,9 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY ''
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+Tambien quiero copiar los hbu a la columna de slug para poder ingresar al toro para eso hago.
+UPDATE spmda_animales_toro SET slug = hbu
 
 
 Nuestra tabla de toros es la siguiente
@@ -195,8 +198,47 @@ CREATE TABLE `spmda_animales_toro` (
   `indicecompleto` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-----------------------------
+si uno tiene php nuevo hay que poner esto
+
+please we need fix in this issue
+
+Unparenthesized a ? b : c ? d : e is deprecated. Use either (a ? b : c) ? d : e or a ? b : (c ? d : e)
+
+the fix is easy
+
+replace this line (line 405) to
+$files = (is_array($files) ? $files : is_string($files)) ? [$files]: $files;
+
+I'am using php 7.4
+
+Esta solucion si funciona
+
+ modules/system/classes/CombineAssets.php 
+
+ $filesSalt = null;
+        foreach ($assets as $asset) {
+            $filters = $this->getFilters(File::extension($asset)) ?: [];
+            $path = file_exists($asset) ? $asset : File::symbolizePath($asset, null) ?: $this->localPath . $asset;
+            $path = file_exists($asset) ? $asset : (File::symbolizePath($asset, null) ?: $this->localPath . $asset);
+            $files[] = new FileAsset($path, $filters, public_path());
+            $filesSalt .= $this->localPath . $asset;
+        }
+@@ -482,7 +482,7 @@ protected function getDeepHashFromAssets($assets)
+        $key = '';
+
+        $assetFiles = array_map(function ($file) {
+            return file_exists($file) ? $file : File::symbolizePath($file, null) ?: $this->localPath . $file;
+            return file_exists($file) ? $file : (File::symbolizePath($file, null) ?: $this->localPath . $file);
+        }, $assets);
+
+        foreach ($assetFiles as $file) {
 
 
+solucion
+https://github.com/octobercms/october/commit/e9abdf7783366be643be3c0023500bdc4a32d939#diff-5538c5c9649b9c8a3a86a96c6c54fd5dR485
+
+-------------------------------
 
 
 
