@@ -23,9 +23,10 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 <div class="container-fluid listado">
+  <div class="table-responsive">
   <h1>Listado de Toros</h1>
 
-  <table class="table table-hover table-condensed table-responsive table-borderless">
+  <table class="table table-hover table-condensed  table-borderless">
     <thead>
       <tr>
         <th scope="col">Nombre (50 por pagina)</th>
@@ -111,4 +112,5 @@ pageNumber = "{{ :page }}"
     {% endif %}
   </ul>
   {% endif %}
+  </div>
 </div>

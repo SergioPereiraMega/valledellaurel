@@ -75,6 +75,7 @@ $(document).ready(function () {
   var leftArrow = '<i class="fas fa-chevron-left"></i>';
   var rightArrow = '<i class="fas fa-chevron-right"></i>';
 
+
   $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
       loop: true,
@@ -131,8 +132,7 @@ $('a[data-scroll="true"]').click(function (e) {
   if (scroll_trigger == true && scroll_target !== undefined) {
     e.preventDefault();
 
-    $("html, body").animate(
-      {
+    $("html, body").animate({
         scrollTop: $(scroll_target).offset().top - 40,
       },
       1000
@@ -235,51 +235,148 @@ gaia = {
       center: myLatlng,
       scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
       disableDefaultUI: true,
-      styles: [
-        { featureType: "administrative", elementType: "labels", stylers: [{ visibility: "on" }, { gamma: "1.82" }] },
+      styles: [{
+          featureType: "administrative",
+          elementType: "labels",
+          stylers: [{
+            visibility: "on"
+          }, {
+            gamma: "1.82"
+          }]
+        },
         {
           featureType: "administrative",
           elementType: "labels.text.fill",
-          stylers: [{ visibility: "on" }, { gamma: "1.96" }, { lightness: "-9" }],
+          stylers: [{
+            visibility: "on"
+          }, {
+            gamma: "1.96"
+          }, {
+            lightness: "-9"
+          }],
         },
-        { featureType: "administrative", elementType: "labels.text.stroke", stylers: [{ visibility: "off" }] },
+        {
+          featureType: "administrative",
+          elementType: "labels.text.stroke",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
         {
           featureType: "landscape",
           elementType: "all",
-          stylers: [{ visibility: "on" }, { lightness: "25" }, { gamma: "1.00" }, { saturation: "-100" }],
+          stylers: [{
+            visibility: "on"
+          }, {
+            lightness: "25"
+          }, {
+            gamma: "1.00"
+          }, {
+            saturation: "-100"
+          }],
         },
-        { featureType: "poi.business", elementType: "all", stylers: [{ visibility: "off" }] },
-        { featureType: "poi.park", elementType: "all", stylers: [{ visibility: "off" }] },
-        { featureType: "road", elementType: "geometry.stroke", stylers: [{ visibility: "off" }] },
-        { featureType: "road", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+        {
+          featureType: "poi.business",
+          elementType: "all",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
+        {
+          featureType: "poi.park",
+          elementType: "all",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
+        {
+          featureType: "road",
+          elementType: "geometry.stroke",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
+        {
+          featureType: "road",
+          elementType: "labels.icon",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
         {
           featureType: "road.highway",
           elementType: "geometry",
-          stylers: [{ hue: "#ffaa00" }, { saturation: "-43" }, { visibility: "on" }],
+          stylers: [{
+            hue: "#ffaa00"
+          }, {
+            saturation: "-43"
+          }, {
+            visibility: "on"
+          }],
         },
-        { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ visibility: "off" }] },
+        {
+          featureType: "road.highway",
+          elementType: "geometry.stroke",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
         {
           featureType: "road.highway",
           elementType: "labels",
-          stylers: [{ visibility: "simplified" }, { hue: "#ffaa00" }, { saturation: "-70" }],
+          stylers: [{
+            visibility: "simplified"
+          }, {
+            hue: "#ffaa00"
+          }, {
+            saturation: "-70"
+          }],
         },
-        { featureType: "road.highway.controlled_access", elementType: "labels", stylers: [{ visibility: "on" }] },
+        {
+          featureType: "road.highway.controlled_access",
+          elementType: "labels",
+          stylers: [{
+            visibility: "on"
+          }]
+        },
         {
           featureType: "road.arterial",
           elementType: "all",
-          stylers: [{ visibility: "on" }, { saturation: "-100" }, { lightness: "30" }],
+          stylers: [{
+            visibility: "on"
+          }, {
+            saturation: "-100"
+          }, {
+            lightness: "30"
+          }],
         },
         {
           featureType: "road.local",
           elementType: "all",
-          stylers: [{ saturation: "-100" }, { lightness: "40" }, { visibility: "off" }],
+          stylers: [{
+            saturation: "-100"
+          }, {
+            lightness: "40"
+          }, {
+            visibility: "off"
+          }],
         },
         {
           featureType: "transit.station.airport",
           elementType: "geometry.fill",
-          stylers: [{ visibility: "on" }, { gamma: "0.80" }],
+          stylers: [{
+            visibility: "on"
+          }, {
+            gamma: "0.80"
+          }],
         },
-        { featureType: "water", elementType: "all", stylers: [{ visibility: "off" }] },
+        {
+          featureType: "water",
+          elementType: "all",
+          stylers: [{
+            visibility: "off"
+          }]
+        },
       ],
     };
     var map = new google.maps.Map($elem, mapOptions);
@@ -301,7 +398,10 @@ var map;
 window.initMap = function () {
   if ($("#map").length) {
     map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: -33.903865, lng: -55.1013417 },
+      center: {
+        lat: -33.903865,
+        lng: -55.1013417
+      },
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.SATELLITE,
     });
@@ -377,13 +477,36 @@ var BrowserDetect = {
     }
   },
 
-  dataBrowser: [
-    { string: navigator.userAgent, subString: "Chrome", identity: "Chrome" },
-    { string: navigator.userAgent, subString: "MSIE", identity: "Explorer" },
-    { string: navigator.userAgent, subString: "Trident", identity: "Explorer" },
-    { string: navigator.userAgent, subString: "Firefox", identity: "Firefox" },
-    { string: navigator.userAgent, subString: "Safari", identity: "Safari" },
-    { string: navigator.userAgent, subString: "Opera", identity: "Opera" },
+  dataBrowser: [{
+      string: navigator.userAgent,
+      subString: "Chrome",
+      identity: "Chrome"
+    },
+    {
+      string: navigator.userAgent,
+      subString: "MSIE",
+      identity: "Explorer"
+    },
+    {
+      string: navigator.userAgent,
+      subString: "Trident",
+      identity: "Explorer"
+    },
+    {
+      string: navigator.userAgent,
+      subString: "Firefox",
+      identity: "Firefox"
+    },
+    {
+      string: navigator.userAgent,
+      subString: "Safari",
+      identity: "Safari"
+    },
+    {
+      string: navigator.userAgent,
+      subString: "Opera",
+      identity: "Opera"
+    },
   ],
 };
 
@@ -413,8 +536,12 @@ popup = {
     $close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
     $shadow = $('<div class="shadow" />').appendTo($fig);
     src = $("img", $fig).attr("src");
-    $shadow.css({ backgroundImage: "url(" + src + ")" });
-    $bg.css({ backgroundImage: "url(" + src + ")" });
+    $shadow.css({
+      backgroundImage: "url(" + src + ")"
+    });
+    $bg.css({
+      backgroundImage: "url(" + src + ")"
+    });
     setTimeout(function () {
       $(".popup").addClass("pop");
     }, 10);
