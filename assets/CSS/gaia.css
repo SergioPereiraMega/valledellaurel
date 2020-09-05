@@ -27,15 +27,15 @@ body {
 
 /*agrego color fondo tabla*/
 table {
-  background-color: rgb(160, 210, 160);
+  background-color: rgb(180, 184, 180);
 }
 
 #layout-header {
-  background-color: rgb(160, 210, 160);
+  background-color: rgb(180, 184, 180);
 }
 
 .listado {
-  background-color: rgb(160, 210, 160);
+  background-color: rgb(180, 184, 180);
   padding-top: 150px;
 }
 
@@ -1587,7 +1587,6 @@ fieldset[disabled] .form-control {
 .navbar .navbar-brand {
   margin: 10px 0px;
   padding: 15px 15px;
-  font-size: 20px;
   line-height: 22px;
 }
 
@@ -1604,6 +1603,9 @@ fieldset[disabled] .form-control {
   padding-bottom: 5px;
 }
 
+a.navbar-brand {
+  font-size: 14px;
+}
 .navbar .navbar-nav>.social-links>a {
   padding: 10px 5px;
 }
