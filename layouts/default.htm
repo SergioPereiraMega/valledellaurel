@@ -1,65 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ this.page.title }}</title>
-    <meta name="description" content="{{ this.page.meta_description }}" />
-    <meta name="title" content="{{ this.page.meta_title }}" />
-    <meta name="author" content="Sergio Pereira - Martín De Angelis" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="Valle del Laurel" />
-    <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-76x76.png' | theme }}" />
-    <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-120x120.png' | theme }}" />
-    <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-180x180.png' | theme }}" />
 
-    <!-- Agrego link para tablas tipo datatables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
+<head>
+  <meta charset="utf-8" />
+  <title>{{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}" />
+  <meta name="title" content="{{ this.page.meta_title }}" />
+  <meta name="author" content="Sergio Pereira - Martín De Angelis" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="Valle del Laurel" />
+  <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-76x76.png' | theme }}" />
+  <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-120x120.png' | theme }}" />
+  <link rel="icon" type="image/png" href="{{ 'assets/img/iconified/apple-touch-icon-180x180.png' | theme }}" />
 
-    <!-- <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
-        <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">    -->
+  <!-- Agrego link para tablas tipo datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
 
-    <link
-      href="{{ [
+  <!-- <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+  <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">    -->
+
+  <link href="{{ [
         '@framework.extras',
         'assets/css/bootstrap.css',
         'assets/css/gaia.css',
         'assets/css/animate.css',
-        ]|theme }}"
-      rel="stylesheet"
-    />
+        ]|theme }}" rel="stylesheet" />
 
-    <!--     <link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap.css' | theme }}" /> -->
-    <!--     <link rel="stylesheet" type="text/css" href="{{ 'assets/css/gaia.css' | theme }}" /> -->
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600" type="text/css" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ 'assets/css/fonts/pe-icon-7-stroke.css' | theme }}" />
-    <link rel="stylesheet" href="{{ 'assets/css/owl.carousel.min.css' | theme }}" />
-    <link rel="stylesheet" href="{{ 'assets/css/owl.theme.default.min.css' | theme }}" />
-    <script src="https://kit.fontawesome.com/04ee27ea2d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap.css' | theme }}" />
+  <link rel="stylesheet" type="text/css" href="{{ 'assets/css/gaia.css' | theme }}" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600" type="text/css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="{{ 'assets/css/fonts/pe-icon-7-stroke.css' | theme }}" />
+  <link rel="stylesheet" href="{{ 'assets/css/owl.carousel.min.css' | theme }}" />
+  <link rel="stylesheet" href="{{ 'assets/css/owl.theme.default.min.css' | theme }}" />
+  <script src="https://kit.fontawesome.com/04ee27ea2d.js" crossorigin="anonymous"></script>
 
-    {% styles %}
-  </head>
+  {% styles %}
+</head>
 
-  <body>
-    <!-- Header -->
-    <header id="layout-header">
-      {% partial 'header' %}
-    </header>
+<body>
+  <!-- Header -->
+  <header id="layout-header">
+    {% partial 'site/header' %}
+  </header>
 
-    <!-- Content -->
-    <section id="layout-content">
-      {% page %}
-    </section>
+  <!-- Content -->
+  <section id="layout-content">
+    {% page %}
+  </section>
 
-    <!-- Footer -->
-    <footer id="layout-footer">
-      {% partial 'footer' %}
-    </footer>
+  <!-- Footer -->
+  <footer id="layout-footer">
+    {% partial 'site/footer' %}
+  </footer>
 
-    <!-- Scripts -->
+  <!-- Scripts -->
 
-    <script src="{{
+  <script src="{{
         [
           '@jquery',
           '@framework',
@@ -72,36 +70,31 @@
         ] | theme
       }}"></script>
 
-    <!--  file where we handle all the script from the Gaia - Bootstrap Template  -->
+  <!--  file where we handle all the script from the Gaia - Bootstrap Template  -->
 
-    <!--  js library for devices recognition -->
-    <!--     <script src="{{ 'assets/js/modernizr.js' | theme }}" type="text/javascript"></script> -->
-    <!--  script for google maps   -->
-    <!-- Google Map -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYMloK_kzsasOQXg-xhGxnwvlAU3HTZWg&callback=initMap"
-      async
-      defer
-    ></script>
-    <!-- Agrego script para datatables -->
-    <script
-      type="text/javascript"
-      charset="utf8"
-      src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"
-    ></script>
+  <!--  js library for devices recognition -->
+  <!--     <script src="{{ 'assets/js/modernizr.js' | theme }}" type="text/javascript"></script> -->
+  <!--  script for google maps   -->
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYMloK_kzsasOQXg-xhGxnwvlAU3HTZWg&callback=initMap"
+    async defer></script>
+  <!-- Agrego script para datatables -->
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
-    <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
  -->
-    <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
-    <!--   <script type="text/javascript" src="{{ 'assets/js/gaia.js' | theme }}"></script> -->
-    <!-- Google Map -->
-    <!-- 
+  <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+  <!--   <script type="text/javascript" src="{{ 'assets/js/gaia.js' | theme }}"></script> -->
+  <!-- Google Map -->
+  <!-- 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYMloK_kzsasOQXg-xhGxnwvlAU3HTZWg&callback=initMap"
       async
       defer
     ></script>
      -->
-    {% framework extras %} {% framework %} {% scripts %}
-  </body>
+  {% framework extras %} {% framework %} {% scripts %}
+</body>
+
 </html>
